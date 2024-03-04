@@ -1,5 +1,6 @@
 import { fastify } from "fastify";
 import { DataBaseMemory } from "./data-base-memory.js";
+import { request } from "express";
 
 const server = fastify();
 
@@ -19,8 +20,10 @@ server.post("/videos", (request, reply) => {
   return reply.status(201).send();
 });
 
-server.get("/videos", () => {
-  const videos = database.list();
+server.get("/videos", (request, reply) => {
+  const search = request.query.search;
+
+  const videos = database.list(search);
 
   return videos;
 });
