@@ -1,5 +1,5 @@
 import { fastify } from "fastify";
-import { DataBaseMemory } from "./data-base-memory.js";
+import { DataBaseMemory } from "./database-memory.js";
 import { request } from "express";
 
 const server = fastify();
