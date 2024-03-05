@@ -42,10 +42,10 @@ server.put("/videos/:id", async (request, reply) => {
   return reply.status(204).send();
 });
 
-server.delete("/videos/:id", (request, reply) => {
+server.delete("/videos/:id", async (request, reply) => {
   const videoId = request.params.id;
 
-  database.delete(videoId);
+  await database.delete(videoId);
 
   return reply.status(204).send();
 });
